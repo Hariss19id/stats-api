@@ -1,0 +1,7 @@
+# Jalankan perintah ini satu per satu di PowerShell
+# setelah buat repo https://github.com/Hariss19id/stats-api
+
+git remote remove origin
+git remote add origin https://github.com/Hariss19id/stats-api.git
+git branch -M main
+git push -u origin main
