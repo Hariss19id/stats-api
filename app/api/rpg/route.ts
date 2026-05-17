@@ -190,21 +190,24 @@ export async function GET(req: NextRequest) {
   <!-- Member since -->
   <text x="145" y="130" fill="#2a4a6a" font-size="8" font-family="monospace">Since ${joinYear}</text>
 
-  <!-- HP / MP / XP bars -->
-  <text x="28" y="172" fill="#ff4060" font-size="8.5" font-weight="bold" font-family="monospace">HP</text>
-  <rect x="48" y="162" width="130" height="7" rx="3" fill="#0a1628"/>
-  <rect x="48" y="162" width="${hpBar}" height="7" rx="3" fill="url(#hpg)"/>
-  <text x="182" y="172" text-anchor="end" fill="#ff4060" font-size="7.5" font-family="monospace">${hp}/${hpMax}</text>
+  <!-- HP / MP / XP bars - label | bar | value (no overlap) -->
+  <!-- HP -->
+  <text x="28" y="162" fill="#ff4060" font-size="8" font-weight="bold" font-family="monospace">HP</text>
+  <rect x="48" y="153" width="100" height="7" rx="3" fill="#0a1628"/>
+  <rect x="48" y="153" width="${Math.round((hp/hpMax)*100)}" height="7" rx="3" fill="url(#hpg)"/>
+  <text x="152" y="162" fill="#ff4060" font-size="8" font-family="monospace">${hp}/${hpMax}</text>
 
-  <text x="28" y="188" fill="#00d4ff" font-size="8.5" font-weight="bold" font-family="monospace">MP</text>
-  <rect x="48" y="178" width="130" height="7" rx="3" fill="#0a1628"/>
-  <rect x="48" y="178" width="${mpBar}" height="7" rx="3" fill="url(#mpg)"/>
-  <text x="182" y="188" text-anchor="end" fill="#00d4ff" font-size="7.5" font-family="monospace">${mp}/${mpMax}</text>
+  <!-- MP -->
+  <text x="28" y="178" fill="#00d4ff" font-size="8" font-weight="bold" font-family="monospace">MP</text>
+  <rect x="48" y="169" width="100" height="7" rx="3" fill="#0a1628"/>
+  <rect x="48" y="169" width="${Math.round((mp/mpMax)*100)}" height="7" rx="3" fill="url(#mpg)"/>
+  <text x="152" y="178" fill="#00d4ff" font-size="8" font-family="monospace">${mp}/${mpMax}</text>
 
-  <text x="28" y="204" fill="#ffcc00" font-size="8.5" font-weight="bold" font-family="monospace">XP</text>
-  <rect x="48" y="194" width="130" height="7" rx="3" fill="#0a1628"/>
-  <rect x="48" y="194" width="${xpBar}" height="7" rx="3" fill="url(#xpg)"/>
-  <text x="182" y="204" text-anchor="end" fill="#ffcc00" font-size="7.5" font-family="monospace">${xp}/25</text>
+  <!-- XP -->
+  <text x="28" y="194" fill="#ffcc00" font-size="8" font-weight="bold" font-family="monospace">XP</text>
+  <rect x="48" y="185" width="100" height="7" rx="3" fill="#0a1628"/>
+  <rect x="48" y="185" width="${Math.round((xp/25)*100)}" height="7" rx="3" fill="url(#xpg)"/>
+  <text x="152" y="194" fill="#ffcc00" font-size="8" font-family="monospace">${xp}/25 xp</text>
 
   <line x1="20" y1="215" x2="276" y2="215" stroke="#00d4ff" stroke-width="0.4" stroke-opacity="0.3"/>
 
